@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  layout 'job'
   def show
     @job = Job.find(params[:id])
     if @job.is_hidden
