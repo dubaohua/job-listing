@@ -3,9 +3,12 @@
 <p>职位描述<%= simple_format(@job.description)%></p>
 <p><span style="color:red">薪资范围：</span><%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %></p>
 <p><span style="font-weight:bold">发布时间：</span><%= @job.created_at.strftime("%Y-%m-%d") %></p>
-<p><span style="font-weight:bold">更新时间：</span><%= @job.updated_at.strftime("%Y-%m-%d") %></p>
-<p><span style="font-weight:bold">联系方式：</span><%= @job.contact_email %></p>
-<p><span style="font-weight:bold">该职位已投简历人数：</span><%= @job.resumes.count %></p>
+<p><span style="font-weight:bold">岗位职责：</span><%= @job.work_zhize %></p>
+<p><span style="font-weight:bold">任职要求：</span><%= @job.work_yaoqiu %></p>
+<p><span style="font-weight:bold">公司名称：</span><%= @job.company_name %></p>
+<p><span style="font-weight:bold">公司信息：</span><%= @job.company_info %></p>
+<p><span style="font-weight:bold">招工人数：</span><%= @job.need_quantity %></p>
+<p><span style="font-weight:bold">工作地点：</span><%= @job.work_address %></p>
 <div class="btn btn-default btn-lg btn-block">
   <%= link_to("投交履历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
 </div>
