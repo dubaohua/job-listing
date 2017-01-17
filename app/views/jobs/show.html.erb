@@ -1,14 +1,29 @@
 
-<h2>职位名称：<%= @job.title %></h2>
-<p>职位描述<%= simple_format(@job.description)%></p>
-<p><span style="color:red">薪资范围：</span><%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %></p>
-<p><span style="font-weight:bold">发布时间：</span><%= @job.created_at.strftime("%Y-%m-%d") %></p>
-<p><span style="font-weight:bold">岗位职责：</span><%= @job.work_zhize %></p>
-<p><span style="font-weight:bold">任职要求：</span><%= @job.work_yaoqiu %></p>
-<p><span style="font-weight:bold">公司名称：</span><%= @job.company_name %></p>
-<p><span style="font-weight:bold">公司信息：</span><%= @job.company_info %></p>
-<p><span style="font-weight:bold">招工人数：</span><%= @job.need_quantity %></p>
-<p><span style="font-weight:bold">工作地点：</span><%= @job.work_address %></p>
-<div class="btn btn-default btn-lg btn-block">
-  <%= link_to("投交履历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
+<h1 style="display:inline"><%= @job.title %></h1>
+<p style="display:inline">（<%= @job.need_quantity %>人）</p>
+<span style="display:inline;margin: 20px 20px 20px 20px"><%= @job.work_address %></span>
+<p style="color:red;display:inline;font-size:22px;margin: 20px 30px 30px 150px"><%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %>/月</p>
+<span class="btn btn-lg btn-warning"><%= link_to("申请职位", new_job_resume_path(@job)) %></span>
+<p><%= @job.company_name %></p>
+
+
+
+<p><span style="font-weight:bold">发布时间：</span><%= @job.created_at.strftime("%m-%d") %></p>
+<div style="font-family:Microsoft YaHei">
+  <h3 style="border-left:4px solid #FF9F20;padding-left;15px;text-indent:0;font-szie:25px;line-hight:10px;background-color: #f5f5f5">职位信息</h3>
+  <p>职位描述<%= simple_format(@job.description)%></p>
+  <p><span style="font-weight:bold;font-family:Microsoft YaHei">岗位职责：</span><%= simple_format(@job.work_zhize) %></p>
+  <p><span style="font-weight:bold">任职要求：</span><%= simple_format(@job.work_yaoqiu) %></p>
+</div>
+<div>
+  <h3 style="border-left:4px solid #FF9F20;padding-left;15px;text-indent:0;font-szie:16px;line-hight:20px;background-color: #f5f5f5">联系方式</h3>
+  <p><span style="font-weight:bold">工作地点：</span><%= @job.work_address %></p>
+  <p><span style="font-weight:bold">联系邮箱：</span><%= @job.contact_email %></p>
+</div>
+<div>
+<h3 style="border-left:4px solid #FF9F20;padding-left;15px;text-indent:0;font-szie:16px;line-hight:20px;background-color: #f5f5f5">公司信息：</h3><%= simple_format(@job.company_info) %></p>
+
+</div>
+<div class="btn btn-default btn-lg btn-block" style="background-color:#f5f5f5">
+  <%= link_to("投交履历", new_job_resume_path(@job), :style => "font-size: 30px") %>
 </div>
