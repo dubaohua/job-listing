@@ -23,6 +23,7 @@
 
   </ul>
 </div>
+  <% if @jobs.present? %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -34,6 +35,7 @@
     </tr>
   </thead>
   <tbody>
+
   <% @jobs.each do |job| %>
     <tr>
       <td><%= link_to(job.title,job_path(job)) %></td>
@@ -53,6 +55,9 @@
       </td>
 
     </tr>
+  <% end %>
+  <% else %>
+    <p>There no jobs containing "<%= params[:search] %>"</p>
   <% end %>
   <tbody>
 </table>
