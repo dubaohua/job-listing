@@ -21,4 +21,9 @@ class Job < ApplicationRecord
     is_admin
   end
 
+  def self.search(search)
+      where("title LIKE ? OR description LIKE ? ", "%#{search}%","%#{search}%")
+
+    end
+
 end

@@ -3,6 +3,14 @@
     <%= link_to("Add a job",new_job_path, :class => "btn btn-default") %>
   </div>
 <% end %>
+
+<%= form_tag(jobs_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search jobs" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+
+
 <div class="dropdown clearfix pull-right">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     排序

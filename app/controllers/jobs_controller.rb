@@ -10,6 +10,10 @@ class JobsController < ApplicationController
   end
 
   def index
+    jobs = Job.all
+    if params[:search]
+      @jobs = Job.published.search(params[:search])
+    elsif
     @jobs = case params[:order]
             when 'by_lower_bound'
               Job.published.order('wage_lower_bound DESC')
@@ -18,6 +22,7 @@ class JobsController < ApplicationController
             else
               Job.published.recent
             end
+    end
   end
 
   def new
